@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box2{
+        position: relative;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+        transform: rotate(-45deg);
+        animation: heart 1s infinite;
+      }
+
+      .box::after,
+      .box::before {
+        content: " ";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: red;
+        /* animation: heart 1s infinite; */
+      }
+
+      .box::after {
+        position: absolute;
+        right: -50px;
+        bottom: 0px;
+      }
+
+      .box::before {
+        position: absolute;
+        left: 0px;
+        top: -50px;
+      }
+
+      .i {
+        width: 100px;
+        height: 5px;
+        position: absolute;
+        background: red;
+        right: -220px;
+        top: -150px;
+        z-index: -50;
+        transform: rotate(-45deg);
+        animation: heart1 5s infinite linear;
+      }
+
+      .i::after {
+        content: "";
+        border-top: 15px solid rgb(255, 255, 255);
+        border-bottom: 15px solid rgb(255, 255, 255);
+        border-right: 25px solid red;
+        display: inline-block;
+        position: absolute;
+        top: -10px;
+      }
+      #burst-12 {
+        background: rgb(255, 0, 0);
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: -100px;
+        left: -70px;
+        text-align: center;
+        z-index: 9;
+        animation: boom 5s infinite;
+        border-radius: 10%;
+      }
+      #burst-12:before,
+      #burst-12:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 300px;
+        width: 300px;
+        background: rgb(255, 0, 0);
+        animation: boom 5s infinite;
+        border-radius: 10%;
+      }
+      #burst-12:before {
+        transform: rotate(30deg);
+        
+      }
+      #burst-12:after {
+        transform: rotate(60deg);
+        
+      }
+
+      @keyframes heart {
+        0% {
+          transform: scale(1) rotate(-45deg);
+        }
+        100% {
+          transform: scale(1.5) rotate(-45deg);
+        }
+      }
+
+      @keyframes heart1 {
+        0% {
+          
+        }
+        
+        40% {
+          right: -130px;
+          top: -70px;
+        }
+        100%{
+          right: -130px;
+          top: -70px;
+        }
+      }
+      @keyframes boom{
+        0%{
+          background: transparent;
+        }
+        40%{
+          background: transparent;
+        }
+        45%{
+          background: red;
+        }
+      }
+      @keyframes boom2{
+        50%{
+          width: 80px;
+          height: 80px;
+        }
+        60%{
+          height: 200px;
+          width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="box2">
+      <div class="box"></div>
+        <div class="i"></div>
+        <div id="burst-12"></div>
+    </div>
+    
+  </body>
+</html>
